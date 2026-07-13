@@ -1,0 +1,7 @@
+﻿  Building Custom Rule C:/Users/p.anvesh/source/repos/O_Chat/CMakeLists.txt
+  main.cpp
+  Client.cpp
+  Server.cpp
+  Session.cpp
+  Generating Code...
+  O_Chat.vcxproj -> C:\Users\p.anvesh\source\repos\O_Chat\build\Release\O_Chat.exe

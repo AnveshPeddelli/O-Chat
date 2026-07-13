@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="O_Chat console UX mockup">
+  <rect width="1200" height="760" fill="#e5e7eb"/>
+  <rect x="90" y="80" width="1020" height="600" rx="8" fill="#0b1220" stroke="#111827" stroke-width="4"/>
+  <rect x="90" y="80" width="1020" height="42" rx="8" fill="#1f2937"/>
+  <circle cx="125" cy="101" r="7" fill="#ef4444"/>
+  <circle cx="150" cy="101" r="7" fill="#f59e0b"/>
+  <circle cx="175" cy="101" r="7" fill="#10b981"/>
+  <text x="205" y="108" font-family="Consolas, monospace" font-size="16" fill="#d1d5db">O_Chat.exe</text>
+
+  <text x="140" y="180" font-family="Consolas, monospace" font-size="24" fill="#e5e7eb">------------------------------------------------------------</text>
+  <text x="140" y="220" font-family="Consolas, monospace" font-size="26" font-weight="700" fill="#ffffff">  Office Console Chat</text>
+  <text x="140" y="260" font-family="Consolas, monospace" font-size="22" fill="#a7f3d0">  Local network chat on port 54000</text>
+  <text x="140" y="300" font-family="Consolas, monospace" font-size="24" fill="#e5e7eb">------------------------------------------------------------</text>
+
+  <text x="140" y="360" font-family="Consolas, monospace" font-size="22" fill="#bfdbfe">[status] Connected as Alice to 192.168.1.45:54000</text>
+  <text x="140" y="405" font-family="Consolas, monospace" font-size="22" fill="#fef3c7">[system] Bob joined the room</text>
+  <text x="140" y="455" font-family="Consolas, monospace" font-size="22" fill="#ffffff">[Alice] Can everyone see this?</text>
+  <text x="140" y="505" font-family="Consolas, monospace" font-size="22" fill="#ffffff">[Bob] Yes, working from my laptop.</text>
+  <text x="140" y="555" font-family="Consolas, monospace" font-size="22" fill="#ffffff">[Host] Great. No chat log is being saved.</text>
+  <text x="140" y="625" font-family="Consolas, monospace" font-size="22" fill="#93c5fd">message &gt; </text>
+  <rect x="260" y="605" width="12" height="28" fill="#93c5fd"/>
+</svg>

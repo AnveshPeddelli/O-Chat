@@ -1,0 +1,4 @@
+C:/Users/p.anvesh/source/repos/O_Chat/build/CMakeFiles/O_Chat.dir
+C:/Users/p.anvesh/source/repos/O_Chat/build/CMakeFiles/CryptoSelfTest.dir
+C:/Users/p.anvesh/source/repos/O_Chat/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/p.anvesh/source/repos/O_Chat/build/CMakeFiles/ZERO_CHECK.dir

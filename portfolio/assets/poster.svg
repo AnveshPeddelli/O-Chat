@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-label="O_Chat portfolio poster">
+  <rect width="1400" height="800" fill="#0f172a"/>
+  <rect x="80" y="75" width="1240" height="650" rx="8" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="130" y="160" font-family="Segoe UI, Arial" font-size="58" font-weight="800" fill="#ffffff">O_Chat</text>
+  <text x="130" y="215" font-family="Segoe UI, Arial" font-size="28" fill="#93c5fd">Privacy-focused office console chat prototype</text>
+
+  <rect x="130" y="285" width="530" height="300" rx="8" fill="#020617" stroke="#475569"/>
+  <text x="165" y="340" font-family="Consolas, monospace" font-size="22" fill="#a7f3d0">[status] Connected as Host</text>
+  <text x="165" y="390" font-family="Consolas, monospace" font-size="22" fill="#fef3c7">[system] Alice joined the room</text>
+  <text x="165" y="440" font-family="Consolas, monospace" font-size="22" fill="#ffffff">[Alice] Quick office sync?</text>
+  <text x="165" y="490" font-family="Consolas, monospace" font-size="22" fill="#ffffff">[Host] Yes. Local network only.</text>
+  <text x="165" y="540" font-family="Consolas, monospace" font-size="22" fill="#93c5fd">message &gt;</text>
+
+  <rect x="760" y="285" width="210" height="105" rx="8" fill="#dbeafe"/>
+  <text x="815" y="348" font-family="Segoe UI, Arial" font-size="24" font-weight="700" fill="#1e3a8a">Host</text>
+  <rect x="1030" y="285" width="210" height="105" rx="8" fill="#ede9fe"/>
+  <text x="1082" y="348" font-family="Segoe UI, Arial" font-size="24" font-weight="700" fill="#4c1d95">Clients</text>
+  <rect x="895" y="480" width="210" height="105" rx="8" fill="#dcfce7"/>
+  <text x="948" y="543" font-family="Segoe UI, Arial" font-size="24" font-weight="700" fill="#166534">Relay</text>
+
+  <path d="M970 338 L1030 338" stroke="#93c5fd" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M1135 390 C1120 450 1080 470 1030 480" stroke="#93c5fd" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+  <path d="M895 532 C820 520 790 450 805 390" stroke="#93c5fd" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="130" y="640" width="1110" height="1" fill="#475569"/>
+  <text x="130" y="685" font-family="Segoe UI, Arial" font-size="24" fill="#cbd5e1">C++  |  ASIO  |  TCP sockets  |  CMake  |  Ephemeral chat design</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#93c5fd"/>
+    </marker>
+  </defs>
+</svg>

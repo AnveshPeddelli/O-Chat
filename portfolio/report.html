@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>O_Chat Portfolio Report</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f8fafc;
+      color: #111827;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.58;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 56px 72px;
+      background: #ffffff;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 46px;
+      line-height: 1.05;
+    }
+
+    h2 {
+      margin-top: 42px;
+      font-size: 25px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 8px;
+    }
+
+    h3 {
+      margin-top: 26px;
+      font-size: 19px;
+    }
+
+    p, li {
+      font-size: 16px;
+    }
+
+    .subtitle {
+      color: #2563eb;
+      font-size: 20px;
+      margin-bottom: 28px;
+    }
+
+    .note {
+      background: #f9fafb;
+      border-left: 5px solid #2563eb;
+      padding: 16px 20px;
+      margin: 26px 0;
+    }
+
+    .warning {
+      background: #fffbeb;
+      border: 2px solid #f59e0b;
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 28px 0;
+    }
+
+    .asset {
+      width: 100%;
+      margin: 22px 0 8px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+    }
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    .tags {
+      color: #475569;
+      font-size: 15px;
+    }
+
+    @page {
+      margin: 18mm 14mm 16mm;
+
+      @bottom-center {
+        content: "O_Chat Portfolio Report  |  Page " counter(page);
+        color: #6b7280;
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 10px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .page {
+        padding: 32px 42px;
+      }
+      h2, h3 {
+        break-after: avoid;
+      }
+      .asset {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>O_Chat</h1>
+    <div class="subtitle">A small office chat app I built in C++</div>
+
+    <img class="asset" src="assets/poster.svg" alt="O_Chat poster">
+
+    <section class="note">
+      <strong>How I would present it:</strong> a privacy-oriented local-network chat prototype. It is worth posting, but I would not oversell it as a finished secure messenger.
+    </section>
+
+    <h2>Why I Built It</h2>
+    <p>
+      I wanted a simple chat tool for a small office-style network where the messages do not need to live forever. The idea was one host machine, multiple people joining over LAN, and no saved chat history after the executable closes.
+    </p>
+    <p>
+      The project started with the rough shape of a C++ ASIO app, but the real implementation was missing. I had to fill in the server, client, and session behavior, then make the console output readable enough to use.
+    </p>
+
+    <h2>How It Works</h2>
+    <p>
+      One executable can either host a room or join one. The host starts a TCP server and also joins as a client. Other users connect with the host IP address. Each connected user has a server-side session, and messages are broadcast to the active sessions.
+    </p>
+    <img class="asset" src="assets/architecture.svg" alt="Architecture diagram">
+
+    <h2>What Broke While Building It</h2>
+    <h3>The server existed, but was not ready yet</h3>
+    <p>
+      My first host flow created the server and immediately tried to connect the host client. That failed because the ASIO event loop was not running yet. I fixed it by separating the server and client loops so the host can listen and chat at the same time.
+    </p>
+
+    <h3>The port number overflowed</h3>
+    <p>
+      I stored port <code>54000</code> in a signed <code>short</code>. That wrapped into a negative value, which made the connection fail in a way that looked like a networking problem. Changing it to <code>std::uint16_t</code> fixed it.
+    </p>
+
+    <h3>The terminal needed some care</h3>
+    <p>
+      Once messages started arriving asynchronously, the console became messy. I added a small UI helper for consistent headers, prompts, status messages, and thread-safe output.
+    </p>
+    <img class="asset" src="assets/console-ux.svg" alt="Console UX mockup">
+
+    <h2>Privacy Choices</h2>
+    <p>
+      The main privacy decision was to avoid persistence. O_Chat does not use a database, does not write chat logs, and does not replay old messages to new users. Messages live in memory while the app is running.
+    </p>
+    <p>
+      I also started adding a shared room-key encryption path so the server can relay encrypted payloads. I am treating that as a work in progress. Before calling it truly secure, I would want automated tests, review, and a clearer threat model.
+    </p>
+    <img class="asset" src="assets/privacy-flow.svg" alt="Privacy flow diagram">
+
+    <h2>What I Learned</h2>
+    <ul>
+      <li>Async networking is as much about event-loop timing as it is about sockets.</li>
+      <li>Object lifetime matters a lot when sessions keep themselves alive during async reads and writes.</li>
+      <li>Small type mistakes can create very confusing runtime bugs.</li>
+      <li>A console app still needs UX work if a real person is expected to use it.</li>
+      <li>Privacy is not just "do not save files"; it also includes transport, memory, logs, shutdown, and honest wording.</li>
+    </ul>
+
+    <h2>What I Would Do Next</h2>
+    <ul>
+      <li>Finish and verify encrypted multi-client messaging end to end.</li>
+      <li>Add graceful Ctrl+C shutdown.</li>
+      <li>Display the host machine's LAN IP automatically.</li>
+      <li>Add better firewall and connection error messages.</li>
+      <li>Use TLS or a reviewed crypto library before making strong security claims.</li>
+    </ul>
+
+    <section class="warning">
+      <strong>Honest framing:</strong> This is postable as a C++ networking and privacy-oriented prototype. I would avoid calling it production-ready secure chat.
+    </section>
+
+    <p class="tags">C++ | ASIO | TCP sockets | CMake | Systems programming | Local network chat</p>
+  </main>
+</body>
+</html>

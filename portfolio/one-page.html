@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>O_Chat One Page Portfolio Brief</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111827;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page {
+      width: 960px;
+      margin: 0 auto;
+      padding: 34px 44px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+    }
+
+    .subtitle {
+      margin: 6px 0 22px;
+      color: #2563eb;
+      font-size: 20px;
+    }
+
+    .poster {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    p, li {
+      font-size: 15px;
+      line-height: 1.42;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .note {
+      margin-top: 22px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: #f9fafb;
+      border-left: 5px solid #2563eb;
+      font-size: 15px;
+    }
+
+    @page {
+      margin: 14mm;
+
+      @bottom-center {
+        content: "O_Chat One-Page Brief  |  Page " counter(page);
+        color: #6b7280;
+        font-family: "Segoe UI", Arial, sans-serif;
+        font-size: 10px;
+      }
+    }
+
+    @media print {
+      .page {
+        width: auto;
+        padding: 20px 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>O_Chat</h1>
+    <div class="subtitle">A small office chat app I built in C++</div>
+    <img class="poster" src="assets/poster.svg" alt="O_Chat portfolio poster">
+
+    <section class="grid">
+      <div>
+        <h2>What I Built</h2>
+        <p>A local-network console chat app where one machine hosts a room and multiple users join with the host IP.</p>
+        <ul>
+          <li>Host/join mode in one executable.</li>
+          <li>Multi-client TCP message relay.</li>
+          <li>No saved database or chat log.</li>
+        </ul>
+      </div>
+      <div>
+        <h2>What Made It Interesting</h2>
+        <ul>
+          <li>I had to split server and client event loops so the host could also chat.</li>
+          <li>A signed <code>short</code> overflow broke port <code>54000</code>.</li>
+          <li>Async messages forced me to clean up the console UX.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="note">
+      <strong>How I would post it:</strong> a privacy-oriented C++ LAN chat prototype. I would not call it production-grade secure messaging yet.
+    </section>
+  </main>
+</body>
+</html>
